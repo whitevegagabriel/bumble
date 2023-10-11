@@ -13,19 +13,15 @@
 // limitations under the License.
 
 use anyhow::anyhow;
-use bumble::{
-    adv::{AdvertisementDataBuilder, CommonDataType},
-    wrapper::{
-        device::Device,
-        logging::{bumble_env_logging_level, py_logging_basic_config},
-        transport::Transport,
-    },
-};
+use bumble::{adv::{AdvertisementDataBuilder, CommonDataType}, wrapper::{
+    device::Device,
+    logging::{bumble_env_logging_level, py_logging_basic_config},
+    transport::Transport,
+}};
 use clap::Parser as _;
 use pyo3::PyResult;
 use rand::Rng;
 use std::path;
-
 #[pyo3_asyncio::tokio::main]
 async fn main() -> PyResult<()> {
     env_logger::builder()
